@@ -2,7 +2,14 @@
   <div class="login">
     <el-row class="login" type="flex" justify="center" align="middle">
       <el-col :xs="14" :sm="12" :md="10" :lg="8" :xl="6">
-        <el-form label-position="top" :model="loginForm" :rules="rules" ref="ruleForm" label-width="100px" class="login-form">
+        <el-form
+          label-position="top"
+          :model="loginForm"
+          :rules="rules"
+          ref="ruleForm"
+          label-width="100px"
+          class="login-form"
+        >
           <el-form-item label="用户名" prop="username">
             <el-input v-model="loginForm.username"></el-input>
           </el-form-item>
@@ -10,14 +17,15 @@
             <el-input type="password" v-model="loginForm.password"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+            <el-button type="primary" @click="submitForm('ruleForm')"
+              >登录</el-button
+            >
             <el-button @click="resetForm('ruleForm')">重置</el-button>
           </el-form-item>
         </el-form>
       </el-col>
     </el-row>
   </div>
-
 </template>
 
 <script>
@@ -57,7 +65,7 @@ export default {
         axios
           .post('http://localhost:8888/api/private/v1/login', this.loginForm)
           .then(res => {
-            console.log(res)
+            // console.log(res)
             if (res.data.meta.status === 200) {
               localStorage.setItem('token', res.data.data.token)
               this.$router.push('/home')
