@@ -40,7 +40,7 @@ export default {
       this.getUserList(curPage, this.searchText)
     },
     search () {
-      // console.log(this.searchText)
+      console.log(this.searchText)
       this.getUserList(1, this.searchText)
     }
   }
